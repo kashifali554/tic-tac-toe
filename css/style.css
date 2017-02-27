@@ -3,6 +3,20 @@
 }
 
 .box {
-  border: 1px solid black;
-  height: 150px;
+  border: 2px solid black;
+  height: 200px;
+}
+
+.X {
+	text-align: center;
+	font-size: 150px;
+	font-weight: bold;
+	color: red;
+}
+
+.O {
+	text-align: center;
+	font-size: 150px;
+	font-weight: bold;
+	color: blue;
 }
