@@ -14,9 +14,12 @@ $(document).ready(function() {
   	//creating an empty arry to keep track of the values of box
   	var value = [];
   	//basic logic functions to announce winner.
-  	function isWinner(value) {
-  		if (value[0] && value[1] && value[2] === "X" ||
-	    	value[3] && value[4] && value[5] === "X" ||
+		//take out argument here since you are manipulating a global variable.
+		//also logic is not quite correct - with this change, now any occupancy of three in a row etc
+		//is a win. a little logic tweaking should fix this, see below
+  	function isWinner() {
+  		if (value[0] === "X" && value[1] ==== "X" && value[2] === "X" || //fix this for the rest...
+	    	value[3] === "X" && value[4] === "X" && value[5] === "X" ||
 	    	value[6] && value[7] && value[8] === "X" ||
 	    	value[0] && value[3] && value[6] === "X" ||
 	    	value[1] && value[4] && value[7] === "X" ||
@@ -24,7 +27,7 @@ $(document).ready(function() {
 	    	value[2] && value[4] && value[7] === "X" ||
 	    	value[0] && value[4] && value[8] === "X" ){
     		alert("Player One Won the Game");
-		} else if 	(value[0] && value[1] && value[2] === "X" ||
+		} else if 	(value[0] && value[1] && value[2] === "O" ||
 		    		value[3] && value[4] && value[5] === "O" ||
 			    	value[6] && value[7] && value[8] === "O" ||
 			    	value[0] && value[3] && value[6] === "O" ||
@@ -44,7 +47,7 @@ $(document).ready(function() {
 		//For Now using this variable to track claim on box.
 		// boxOne = false;
 		//creating a value to keep track of value of variable to decide the winner.
-		
+
 
 		//Creating an event on click, click will trigger an event function.
 		$boxOne.on('click', function handleClick() {
@@ -61,7 +64,7 @@ $(document).ready(function() {
 					value.push("O");
 					// $boxOne.addClass( "O" ) //This line will add class "O" to boxOne
 				}
-				boardArr[0] = true; //After if/else completes. We change the value to true; So, if a player clicks again, first If value will be true and that will take click event to first else statment (That will alert user that his box is already taken). 
+				boardArr[0] = true; //After if/else completes. We change the value to true; So, if a player clicks again, first If value will be true and that will take click event to first else statment (That will alert user that his box is already taken).
 				counter++; // before exiting the second if/else statment we change counter to keep track of player turns ("X" and "O");
 				console.log(counter, boardArr[0]);
 				isWinner();

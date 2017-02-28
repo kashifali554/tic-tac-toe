@@ -1,3 +1,4 @@
+//the styling is nice here
 #board {
   margin-top: 10px;
 }
@@ -13,7 +14,6 @@
 	font-weight: bold;
 	color: red;
 }
-
 .O {
 	text-align: center;
 	font-size: 150px;
