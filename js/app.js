@@ -5,11 +5,28 @@ $(document).ready(function() {
   // all code to manipulate the DOM
   // goes inside this function
 
+  	//Getting box class array
+  	var boxes = $('.box');
+
   	//Variable counter to track the turns of playerOne "X" and "O"
   	var counter = 0;
 
   	//an array to check (or turn the box to true), so the second player cannot (click) or claim this box.
   	var boardArr = [false, false, false, false, false, false, false, false, false];
+
+  	//creating a function ot reset the game
+  	function resetGame() {
+ 	 		boxes.text(""); // This line will empty all boxes text.
+ 	 		boxes.removeClass("X"); // This will remove all "X" classes
+ 	 		boxes.removeClass("O"); // This will remove all "O" classes
+ 	 		counter = 0; //This will reset the counter to 0;
+ 	 		//this line will reset the board array to all false again.
+ 	 		boardArr = [false, false, false, false, false, false, false, false, false];
+ 	 	
+ 	} 
+ 	$("#reset").on('click', function(){
+ 		resetGame();
+ 	});
 
   	//creating an empty arry to keep track of the values of box
   	var value = [];
