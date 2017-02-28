@@ -14,24 +14,24 @@ $(document).ready(function() {
   	//creating an empty arry to keep track of the values of box
   	var value = [];
   	//basic logic functions to announce winner.
-  	function isWinner(value) {
-  		if (value[0] && value[1] && value[2] === "X" ||
-	    	value[3] && value[4] && value[5] === "X" ||
-	    	value[6] && value[7] && value[8] === "X" ||
-	    	value[0] && value[3] && value[6] === "X" ||
-	    	value[1] && value[4] && value[7] === "X" ||
-	    	value[3] && value[6] && value[8] === "X" ||
-	    	value[2] && value[4] && value[7] === "X" ||
-	    	value[0] && value[4] && value[8] === "X" ){
+  	function isWinner() {
+  		if (value[0] === "X" && value[1] === "X" && value[2] === "X" ||
+	    	value[3] === "X" && value[4] === "X" && value[5] === "X" ||
+	    	value[6] === "X" && value[7] === "X" && value[8] === "X" ||
+	    	value[0] === "X" && value[3] === "X" && value[6] === "X" ||
+	    	value[1] === "X" && value[4] === "X" && value[7] === "X" ||
+	    	value[3] === "X" && value[6] === "X" && value[8] === "X" ||
+	    	value[2] === "X" && value[4] === "X" && value[7] === "X" ||
+	    	value[0] === "X" && value[4] === "X" && value[8] === "X" ){
     		alert("Player One Won the Game");
-		} else if 	(value[0] && value[1] && value[2] === "X" ||
-		    		value[3] && value[4] && value[5] === "O" ||
-			    	value[6] && value[7] && value[8] === "O" ||
-			    	value[0] && value[3] && value[6] === "O" ||
-			    	value[1] && value[4] && value[7] === "O" ||
-			    	value[3] && value[6] && value[8] === "O" ||
-			    	value[2] && value[4] && value[7] === "O" ||
-			    	value[0] && value[4] && value[8] === "O"){
+		} else if 	(value[0] === "O" && value[1] === "O" && value[2] === "O" ||
+		    		value[3] === "O" && value[4] === "O" && value[5] === "O" ||
+			    	value[6] === "O" && value[7] === "O" && value[8] === "O" ||
+			    	value[0] === "O" && value[3] === "O" && value[6] === "O" ||
+			    	value[1] === "O" && value[4] === "O" && value[7] === "O" ||
+			    	value[3] === "O" && value[6] === "O" && value[8] === "O" ||
+			    	value[2] === "O" && value[4] === "O" && value[7] === "O" ||
+			    	value[0] === "O" && value[4] === "O" && value[8] === "O"){
         	alert("Player Two wins")
     	} else {
         	// alert ("Game Draw, play again");
@@ -63,7 +63,7 @@ $(document).ready(function() {
 				}
 				boardArr[0] = true; //After if/else completes. We change the value to true; So, if a player clicks again, first If value will be true and that will take click event to first else statment (That will alert user that his box is already taken). 
 				counter++; // before exiting the second if/else statment we change counter to keep track of player turns ("X" and "O");
-				console.log(counter, boardArr[0]);
+				console.log(counter, boardArr[0], value[0]);
 				isWinner();
 				//second if/else statment ends here and complets it's operation of tracking turns with counter variable and adding text and classes of "X" "O" to #boxOne. Also changing the value of boxOne and counter value.
 			} else {
@@ -85,8 +85,8 @@ $(document).ready(function() {
 				}
 				boardArr[1] = true;
 				counter++;
-				console.log(counter, boardArr[1]);
-				isWinner();
+				console.log(counter, boardArr[1], value[1]);
+				isWinner();	
 			} else {
 				alert("box already taken, try another box");
 			}
@@ -105,7 +105,7 @@ $(document).ready(function() {
 				}
 				boardArr[2] = true;
 				counter++;
-				console.log(counter, boardArr[2]);
+				console.log(counter, boardArr[2], value[2]);
 				isWinner();
 			} else {
 				alert("box already taken, try another box");
